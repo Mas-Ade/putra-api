@@ -16,7 +16,12 @@ app.use(
   })
 )
 
-db.sequelize.sync();
+db.sequelize.sync().then(()=>{
+  console.log('database terhubung')
+}).catch(()=> {
+  console.log('database error')
+})
+
 
 app.get('/', (req, res) => {
 try{
